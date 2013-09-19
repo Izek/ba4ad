@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="hello_second_activity">This is a second Activity!</string>
     <string name="str_button_first_activity">Display second Activity</string>
+    <string name="str_button_second_activity">OK</string>
+    <string name="str_exit_app">Exit App</string>
 
 </resources>

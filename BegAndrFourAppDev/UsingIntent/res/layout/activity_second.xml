@@ -9,8 +9,26 @@
     tools:context=".FirstActivity" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_second_activity" />
+
+    <EditText
+        android:id="@+id/txt_username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:hint="" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_username"
+        android:layout_below="@+id/txt_username"
+        android:onClick="onClick"
+        android:text="@string/str_button_second_activity" />
 
 </RelativeLayout>

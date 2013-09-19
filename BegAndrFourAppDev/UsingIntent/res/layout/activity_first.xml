@@ -15,11 +15,20 @@
 
     <Button
         android:id="@+id/button1"
-        android:onClick="onClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:onClick="onClick"
         android:text="@string/str_button_first_activity" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/str_exit_app" 
+        android:onClick="onClickToExit"/>
 
 </RelativeLayout>
