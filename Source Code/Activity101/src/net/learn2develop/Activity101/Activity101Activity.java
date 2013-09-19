@@ -13,7 +13,7 @@ public class Activity101Activity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //---hides the title bar---
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.main);
         Log.d(tag, "In the onCreate() event");

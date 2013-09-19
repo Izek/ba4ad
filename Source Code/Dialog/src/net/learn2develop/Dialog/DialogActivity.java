@@ -2,7 +2,6 @@ package net.learn2develop.Dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -24,6 +23,7 @@ public class DialogActivity extends Activity {
 		setContentView(R.layout.main);		
 	}
 
+	@SuppressWarnings("deprecation")
 	public void onClick(View v) {
 		showDialog(0);
 	}
@@ -46,6 +46,7 @@ public class DialogActivity extends Activity {
 		}).start();
 	}		
 	
+	@SuppressWarnings("deprecation")
 	public void onClick3(View v) {
 		showDialog(1);        
         progressDialog.setProgress(0);        
