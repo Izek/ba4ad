@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="str_fragment_one_info">This is fragment #1</string>
     <string name="str_fragment_two_info">This is fragment #2</string>
+    <string name='str_fragment_two_button'>Get Text in freament #1</string>
 
 </resources>

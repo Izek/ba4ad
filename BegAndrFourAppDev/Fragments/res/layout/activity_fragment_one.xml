@@ -6,6 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/activity_fragment_one_label"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/str_fragment_one_info"
