@@ -1,10 +1,9 @@
 package com.shumz.fragments;
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.FragmentManager;
 import android.view.Display;
 import android.view.Menu;
 import android.view.WindowManager;
@@ -35,7 +34,7 @@ public class FragmentsActivity extends Activity {
 
 		fragmentTransaction.commit();
 
-	//	setContentView(R.layout.activity_fragments);
+		// setContentView(R.layout.activity_fragments);
 	}
 
 	@Override
