@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Intents</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="str_btn_web_browser">Web Browser</string>
+    <string name="str_btn_make_calls">Make Calls</string>
+    <string name="str_btn_show_map">Show Map</string>
+
+</resources>
