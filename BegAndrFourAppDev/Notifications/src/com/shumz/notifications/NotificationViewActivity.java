@@ -1,15 +1,12 @@
-package NotificationView;
-
-import com.shumz.notifications.R;
+package com.shumz.notifications;
 
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.os.Bundle;
-import android.view.Menu;
 
 public class NotificationViewActivity extends Activity {
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_notification_view);
 
@@ -18,14 +15,5 @@ public class NotificationViewActivity extends Activity {
 
 		// ---cancel the notification that we started---
 		nm.cancel(getIntent().getExtras().getInt("notificationID"));
-
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
 }

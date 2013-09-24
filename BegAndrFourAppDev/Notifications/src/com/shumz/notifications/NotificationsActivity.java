@@ -1,6 +1,5 @@
 package com.shumz.notifications;
 
-import NotificationView.NotificationViewActivity;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -11,7 +10,7 @@ import android.view.View;
 
 public class NotificationsActivity extends Activity {
 
-	private int notificationID;
+	private int notificationID = 1;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,5 @@ public class NotificationsActivity extends Activity {
 
 		notif.vibrate = new long[] { 100, 250, 100, 500, 100, 750 };
 		nm.notify(notificationID, notif);
-
 	}
-
 }

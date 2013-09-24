@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.shumz.notifications.NotificationsActivity"
+            android:name=".NotificationsActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +25,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NotificationView"
+            android:name=".NotificationViewActivity"
             android:label="Details of notification" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

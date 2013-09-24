@@ -4,7 +4,7 @@
     <string name="app_name">Notifications</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="str_notification_details">Here are the details for the notification#8230;</string>
+    <string name="str_notification_details">Here are the details for the notification…</string>
     <string name="str_display_notification">Display Notification</string>
 
 </resources>
