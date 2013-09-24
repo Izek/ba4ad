@@ -30,4 +30,11 @@
         android:onClick="onClickShowMap"
         android:text="@string/str_btn_show_map" />
 
+    <Button
+        android:id="@+id/btn_launchBrowser"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickLaunchBrowser"
+        android:text="@string/str_btn_launch_browser" />
+
 </LinearLayout>

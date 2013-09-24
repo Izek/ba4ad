@@ -35,6 +35,13 @@ public class IntentsActivity extends Activity {
 		startActivity(i);
 	}
 
+	public void onClickLaunchBrowser(View view) {
+		Intent i = new Intent("com.shumz.intents.BrowserActivity");
+		i.setData(Uri
+				.parse("http://lurkmore.to/%D0%90%D0%BD%D1%82%D0%B8-%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD"));
+		startActivity(i);
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

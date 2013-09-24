@@ -7,5 +7,6 @@
     <string name="str_btn_web_browser">Web Browser</string>
     <string name="str_btn_make_calls">Make Calls</string>
     <string name="str_btn_show_map">Show Map</string>
+    <string name="str_btn_launch_browser">Launch Browser</string>
 
 </resources>
