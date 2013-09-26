@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class UIActivityActivity extends Activity {
@@ -23,6 +24,17 @@ public class UIActivityActivity extends Activity {
 
 		Button btn_cancel = (Button) findViewById(R.id.btnCancel);
 		btn_cancel.setOnClickListener(btnListener);
+
+		// ---create an anonymous inner class to act as an onfocus listener---
+		EditText etUsername = (EditText) findViewById(R.id.etUserName);
+		etUsername.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				Toast.makeText(getBaseContext(), ((EditText) v).getId() + " has focus...",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	// ---create an anonymous class to act as a button click listener---
