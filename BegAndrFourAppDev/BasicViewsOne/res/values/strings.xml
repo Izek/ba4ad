@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BasicViewsOne</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="str_btn_open">Open</string>
+    <string name="str_btn_save">Save</string>
+    <string name="str_et_hint">some fucking hint…</string>
+    <string name="str_chkBox_autosave">Autosave</string>
+    <string name="str_r_button_option_one">Option 001</string>
+    <string name="str_r_button_option_two">Option 002</string>
+
+</resources>
