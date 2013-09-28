@@ -2,6 +2,7 @@ package com.shumz.basicviewsfour;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,11 +10,13 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class BasicViewsFourActivity extends Activity {
 	TimePicker tPicker;
+	DatePicker dPicker;
 
 	int hour, minute;
 	static final int TIME_DIALOG_ID = 0;
@@ -27,7 +30,8 @@ public class BasicViewsFourActivity extends Activity {
 		tPicker = (TimePicker) findViewById(R.id.timePicker);
 		tPicker.setIs24HourView(true);
 
-		showDialog(TIME_DIALOG_ID);
+		// showDialog(TIME_DIALOG_ID);
+		dPicker = (DatePicker) findViewById(R.id.datePicker);
 	}
 
 	@Override
@@ -51,22 +55,26 @@ public class BasicViewsFourActivity extends Activity {
 			hour = hourOfDay;
 			minute = minuteOfHour;
 
-			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");
-			Date date = new Date(0,0,0, hour, minute);
+			SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa",
+					Locale.US);
+			@SuppressWarnings("deprecation")
+			Date date = new Date(0, 0, 0, hour, minute);
 			String strDate = timeFormat.format(date);
-			
-			Toast.makeText(getBaseContext(), "You have selected: " + strDate, Toast.LENGTH_SHORT).show();
-			
-			
+
+			Toast.makeText(getBaseContext(), "You have selected: " + strDate,
+					Toast.LENGTH_SHORT).show();
+
 		}
 	};
 
 	public void onClickSetTime(View view) {
 		Toast.makeText(
 				getApplicationContext(),
-				"Time is set to: " + tPicker.getCurrentHour() + "h "
-						+ tPicker.getCurrentMinute() + "m", Toast.LENGTH_SHORT)
-				.show();
+				"Date selected is: " + dPicker.getDayOfMonth() + "/"
+						+ (dPicker.getMonth() + 1) + "/" + dPicker.getYear()
+						+ "\n" + "Time is set to: " + tPicker.getCurrentHour()
+						+ "h " + tPicker.getCurrentMinute() + "m",
+				Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
