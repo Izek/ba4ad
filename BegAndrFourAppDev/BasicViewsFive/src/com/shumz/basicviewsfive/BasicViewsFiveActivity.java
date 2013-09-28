@@ -20,9 +20,13 @@ public class BasicViewsFiveActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_basic_views_five);
 
-		setListAdapter(new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, presidents));
+		ListView listView = getListView();
 
+		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+		listView.setTextFilterEnabled(true);
+
+		setListAdapter(new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_checked, presidents));
 	}
 
 	public void onListItemClick(ListView parent, View v, int position, long id) {
