@@ -21,6 +21,7 @@ public class BasicViewsTwoActivity extends Activity {
 
 		progress = 0;
 		progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+		progressBar.setMax(200);
 
 		// ---do some work in background thread---
 		new Thread(new Runnable() {
@@ -28,24 +29,32 @@ public class BasicViewsTwoActivity extends Activity {
 			public void run() {
 
 				// ---do some work here---
-				while (progressStatus < 10) {
+				while (progressStatus < 100) {
 					progressStatus = doSomeWork();
+
+					// ---Update the progress bar---
+					handler.post(new Runnable() {
+						public void run() {
+							progressBar.setProgress(progressStatus);
+						}
+					});
 				}
 
 				// ---hides the progress bar---
 				handler.post(new Runnable() {
 					public void run() {
-						// ---0 - VISIBLE; 4 - INVISIBLE; 8 -GONE---
+						// ---0 - VISIBLE; 4 - INVISIBLE; 8 - GONE---
 						progressBar.setVisibility(View.GONE);
 					}
 				});
+
 			}
 
 			// ---do some long running work here---
 			private int doSomeWork() {
 				try {
 					// ---simulate doing some work---
-					Thread.sleep(550);
+					Thread.sleep(250);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
