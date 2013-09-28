@@ -10,10 +10,12 @@ import android.widget.Toast;
 
 public class BasicViewsFiveActivity extends ListActivity {
 
-	String[] presidents = { "Dwight D. Eisenhower", "John F. Kennedy",
-			"Lyndon B. Johnson", "Richard Nixon", "Gerald Ford",
-			"Jimmy Carter", "Ronald Reagan", "George H. W. Bush",
-			"Bill Clinton", "George W. Bush", };
+	// String[] presidents = { "Dwight D. Eisenhower", "John F. Kennedy",
+	// "Lyndon B. Johnson", "Richard Nixon", "Gerald Ford",
+	// "Jimmy Carter", "Ronald Reagan", "George H. W. Bush",
+	// "Bill Clinton", "George W. Bush", };
+
+	String[] presidents;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class BasicViewsFiveActivity extends ListActivity {
 
 		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		listView.setTextFilterEnabled(true);
+		
+		presidents = getResources().getStringArray(R.array.presidents_array);
 
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_checked, presidents));
