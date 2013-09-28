@@ -1,10 +1,12 @@
 package com.shumz.basicviewsfour;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -19,7 +21,10 @@ public class BasicViewsFourActivity extends Activity {
 	DatePicker dPicker;
 
 	int hour, minute;
+	int year, month, day;
+
 	static final int TIME_DIALOG_ID = 0;
+	static final int DATE_DIALOG_ID = 1;
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -32,6 +37,16 @@ public class BasicViewsFourActivity extends Activity {
 
 		// showDialog(TIME_DIALOG_ID);
 		dPicker = (DatePicker) findViewById(R.id.datePicker);
+
+		// ---get the current date---
+		Calendar calend = Calendar.getInstance();
+		year = calend.get(Calendar.YEAR);
+		month = calend.get(Calendar.MONTH);
+		day = calend.get(Calendar.DAY_OF_MONTH);
+
+		
+		showDialog(DATE_DIALOG_ID);
+
 	}
 
 	@Override
@@ -40,6 +55,10 @@ public class BasicViewsFourActivity extends Activity {
 		case TIME_DIALOG_ID:
 			return new TimePickerDialog(this, mTimeSetListener, hour, minute,
 					false);
+
+		case DATE_DIALOG_ID:
+			return new DatePickerDialog(this, mDateSetListener, year, month,
+					day);
 		default:
 			break;
 		}
@@ -47,6 +66,19 @@ public class BasicViewsFourActivity extends Activity {
 		return null;
 
 	}
+
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int yearz, int monthOfYearz,
+				int dayOfMonthz) {
+			year = yearz;
+			month = monthOfYearz;
+			day = dayOfMonthz;
+			Toast.makeText(
+					getBaseContext(),
+					"You have selected : " + (month + 1) + "/" + day + "/"
+							+ year, Toast.LENGTH_SHORT).show();
+		}
+	};
 
 	private TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
 
