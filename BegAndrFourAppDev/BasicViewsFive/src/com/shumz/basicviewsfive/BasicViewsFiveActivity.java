@@ -20,13 +20,13 @@ public class BasicViewsFiveActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_basic_views_five);
+		setContentView(R.layout.activity_basic_views_five);
 
 		ListView listView = getListView();
 
 		listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		listView.setTextFilterEnabled(true);
-		
+
 		presidents = getResources().getStringArray(R.array.presidents_array);
 
 		setListAdapter(new ArrayAdapter<String>(this,
@@ -36,6 +36,19 @@ public class BasicViewsFiveActivity extends ListActivity {
 	public void onListItemClick(ListView parent, View v, int position, long id) {
 		Toast.makeText(this, "You have selected " + presidents[position],
 				Toast.LENGTH_SHORT).show();
+	}
+
+	public void onClick(View view) {
+		ListView listView = getListView();
+
+		String itemsSelected = "Selected items: \n";
+
+		for (int i = 0; i < listView.getCount(); i++) {
+			if (listView.isItemChecked(i)) {
+				itemsSelected += listView.getItemAtPosition(i) + "\n";
+			}
+		}
+		Toast.makeText(this, itemsSelected, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
