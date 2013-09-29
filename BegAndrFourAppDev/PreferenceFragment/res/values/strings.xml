@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PreferenceFragment</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!--  -->
+
+    <string name="str_pref_cat_one">Category 001: </string>
+    <string name="str_pref_chck_box">Choose your destiny…</string>
+    <string name="str_pref_chck_box_summary">\'Yes\' or \'No\'?..</string>
+    <string name="str_pref_cat_two">Category 002: </string>
+    <string name="str_pref_et">Edit Text</string>
+    <string name="str_pref_ringtones">RingTones</string>
+    <string name="str_pref_second_screen">Second Preference Screen</string>
+    <string name="str_pref_second_screen_et">Edit Text (second Screen)</string>
+
+</resources>
