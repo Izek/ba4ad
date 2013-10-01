@@ -76,11 +76,17 @@ public class MenusActivity extends Activity {
 
 	}
 
-//	 @Override
-//	 public boolean onCreateOptionsMenu(Menu menu) {
-//	 // Inflate the menu; this adds items to the action bar if it is present.
-//	 getMenuInflater().inflate(R.menu.menus, menu);
-//	 return true;
-//	 }
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		// getMenuInflater().inflate(R.menu.menus, menu);
+		CreateMenu(menu);
 
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		return MenuChoice(item);
+	}
 }
