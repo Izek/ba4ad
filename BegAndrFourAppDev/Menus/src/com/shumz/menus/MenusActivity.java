@@ -2,8 +2,13 @@ package com.shumz.menus;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MenusActivity extends Activity {
@@ -12,6 +17,23 @@ public class MenusActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menus);
+
+		Button btn = (Button) findViewById(R.id.button1);
+		btn.setOnCreateContextMenuListener(this);
+
+		btn.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				Toast.makeText(getBaseContext(), "Hold it,  faggot!..",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		CreateMenu(menu);
 	}
 
 	private void CreateMenu(Menu menu) {

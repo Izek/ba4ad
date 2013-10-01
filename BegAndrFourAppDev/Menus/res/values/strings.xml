@@ -4,5 +4,6 @@
     <string name="app_name">Menus</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="str_btn_cont_menu_name">Click and hold on it</string>
 
 </resources>
