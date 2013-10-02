@@ -2,9 +2,11 @@ package com.shumz.sharedpreferences;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class SharedPreferencesActivity extends Activity {
@@ -23,13 +25,30 @@ public class SharedPreferencesActivity extends Activity {
 	}
 
 	public void onClickDisplay(View view) {
-		Toast.makeText(getBaseContext(), "Sorry,  not implemented yet...",
-				Toast.LENGTH_SHORT).show();
+		// Toast.makeText(getBaseContext(), "Sorry,  not implemented yet...",
+		// Toast.LENGTH_SHORT).show();
+
+		//com.shumz.sharedpreferences_preferences.xml
+
+		
+		SharedPreferences appPrefs = getSharedPreferences(
+				"com.shumz.sharedpreferences_preferences", MODE_PRIVATE);
+		DisplayText(appPrefs.getString("editTextPref", ""));
 	}
 
 	public void onClickModify(View view) {
-		Toast.makeText(getBaseContext(), "Sorry,  not implemented yet...",
-				Toast.LENGTH_SHORT).show();
+		// Toast.makeText(getBaseContext(), "Sorry,  not implemented yet...",
+		// Toast.LENGTH_SHORT).show();
+
+		SharedPreferences appPrefs = getSharedPreferences("com.shumz.sharedpreferences_preferences", MODE_PRIVATE);
+		SharedPreferences.Editor prefsEditor = appPrefs.edit();
+
+		((EditText) findViewById(R.id.txtString)).getText().toString();
+		prefsEditor.commit();
+	}
+
+	private void DisplayText(String string) {
+		Toast.makeText(getBaseContext(), string, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
