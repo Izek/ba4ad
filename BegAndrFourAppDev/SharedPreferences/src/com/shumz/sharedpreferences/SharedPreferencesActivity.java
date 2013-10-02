@@ -32,7 +32,7 @@ public class SharedPreferencesActivity extends Activity {
 
 		
 		SharedPreferences appPrefs = getSharedPreferences(
-				"com.shumz.sharedpreferences_preferences", MODE_PRIVATE);
+				"sharedPrefs", MODE_PRIVATE);
 		DisplayText(appPrefs.getString("editTextPref", ""));
 	}
 
@@ -40,7 +40,7 @@ public class SharedPreferencesActivity extends Activity {
 		// Toast.makeText(getBaseContext(), "Sorry,  not implemented yet...",
 		// Toast.LENGTH_SHORT).show();
 
-		SharedPreferences appPrefs = getSharedPreferences("com.shumz.sharedpreferences_preferences", MODE_PRIVATE);
+		SharedPreferences appPrefs = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
 		SharedPreferences.Editor prefsEditor = appPrefs.edit();
 
 		((EditText) findViewById(R.id.txtString)).getText().toString();
