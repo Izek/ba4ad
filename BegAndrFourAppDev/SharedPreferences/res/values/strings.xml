@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SharedPreferences</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="str_btn_load_pref">Load Preferences Screen</string>
+    <string name="str_btn_show_pref">Display Preferences Values</string>
+    <string name="str_btn_modiy_pref">Modify Preferences Values</string>
+
+</resources>
