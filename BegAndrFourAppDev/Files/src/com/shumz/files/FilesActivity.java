@@ -1,5 +1,6 @@
 package com.shumz.files;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.io.OutputStreamWriter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -30,9 +32,17 @@ public class FilesActivity extends Activity {
 	public void onClickSave(View view) {
 		String str = textBox.getText().toString();
 		try {
-			@SuppressWarnings("deprecation")
-			FileOutputStream fOut = openFileOutput("txtFile.txt",
-					MODE_WORLD_READABLE);
+
+			// ---SD Card Storage---
+			File sdCard = Environment.getExternalStorageDirectory();
+			File directory = new File(sdCard.getAbsolutePath() + "/MyFiles");
+			directory.mkdirs();
+			File file = new File(directory, "txtFile.txt");
+			FileOutputStream fOut = new FileOutputStream(file);
+
+			// @SuppressWarnings("deprecation")
+			// FileOutputStream fOut = openFileOutput("txtFile.txt",
+			// MODE_WORLD_READABLE);
 			OutputStreamWriter osw = new OutputStreamWriter(fOut);
 
 			// ---write the string to the file---
@@ -53,8 +63,14 @@ public class FilesActivity extends Activity {
 
 	public void onClickLoad(View view) {
 		try {
-			FileInputStream fIn = openFileInput("txtFile.txt");
+			// ---SD Storage---
+			File sdCard = Environment.getExternalStorageDirectory();
+			File directory = new File(sdCard.getAbsolutePath() + "/MyFiles");
+			File file = new File(directory, "txtFile.txt");
+			FileInputStream fIn = new FileInputStream(file);
 			InputStreamReader isr = new InputStreamReader(fIn);
+			// FileInputStream fIn = openFileInput("txtFile.txt");
+			// InputStreamReader isr = new InputStreamReader(fIn);
 
 			char[] inputBuffer = new char[READ_BLOCK_SIZE];
 			String str = "";
@@ -74,6 +90,7 @@ public class FilesActivity extends Activity {
 			// ---set the EditText to the text that has been
 			// read---
 			textBox.setText(str);
+			isr.close();
 
 			Toast.makeText(getBaseContext(), "File loaded successfully!",
 					Toast.LENGTH_SHORT).show();
