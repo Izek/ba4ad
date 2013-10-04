@@ -10,6 +10,14 @@ public class DatabasesActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_databases);
+
+		DBAdapter db = new DBAdapter(this);
+
+		// ---add a contact---
+		db.open();
+		long id = db.insertContact("Izek Schum", "izek.schum@gmail.com");
+		id = db.insertContact("Mary Jackson", "mary@jackson.com");
+		db.close();
 	}
 
 	@Override
