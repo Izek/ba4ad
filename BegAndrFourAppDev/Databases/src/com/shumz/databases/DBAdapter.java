@@ -16,7 +16,7 @@ public class DBAdapter {
 	static final String TAG = "DBAdapter";
 	static final String DATABASE_NAME = "MyDB";
 	static final String DATABASE_TABLE = "contacts";
-	static final int DATABASE_VERSION = 1;
+	static final int DATABASE_VERSION = 2;
 	static final String DATABASE_CREATE = "create table contacts (_id integer primary key autoincrement, "
 			+ "name text not null, email text not null);";
 	final Context context;

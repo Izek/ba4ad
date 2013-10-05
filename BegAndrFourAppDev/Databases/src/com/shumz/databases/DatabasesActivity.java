@@ -1,8 +1,14 @@
 package com.shumz.databases;
 
-import android.os.Bundle;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import android.app.Activity;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -14,23 +20,40 @@ public class DatabasesActivity extends Activity {
 		setContentView(R.layout.activity_databases);
 
 		DBAdapter db = new DBAdapter(this);
+		try {
+			String destPath = "/data/data" + getPackageName() + "/databases";
+			File f = new File(destPath);
+			if (!f.exists()) {
+				f.mkdirs();
+				f.createNewFile();
 
-		// ---add a contact---
+				// ---copy the db from the assets folder into
+				// the databases folder---
+				CopyDB(getBaseContext().getAssets().open("my_db"),
+						new FileOutputStream(destPath + "MyDB"));
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// // ---add a contact---
 		// db.open();
 		// long id = db.insertContact("Izek Schum", "izek.schum@gmail.com");
 		// id = db.insertContact("Mary Jackson", "mary@jackson.com");
 		// db.close();
 
-		// // ---get all contacts---
-		// db.open();
-		// Cursor c = db.getAllContacts();
-		// if (c.moveToFirst()) {
-		// do {
-		// DisplayContact(c);
-		//
-		// } while (c.moveToNext());
-		// }
-		// db.close();
+		// ---get all contacts---
+		db.open();
+		Cursor c = db.getAllContacts();
+		if (c.moveToFirst()) {
+			do {
+				DisplayContact(c);
+
+			} while (c.moveToNext());
+		}
+		db.close();
 
 		// // ---get a contact---
 		// db.open();
@@ -51,16 +74,29 @@ public class DatabasesActivity extends Activity {
 		// Toast.makeText(this, "Update failed...", Toast.LENGTH_SHORT).show();
 		// }
 
-		// ---delete a contact---
-		db.open();
-		if (db.deleteContact(1)) {
-			Toast.makeText(this, "Delete successful!..", Toast.LENGTH_SHORT)
-					.show();
-		} else {
-			Toast.makeText(this, "Delete failed...", Toast.LENGTH_SHORT).show();
+		// // ---delete a contact---
+		// db.open();
+		// if (db.deleteContact(1)) {
+		// Toast.makeText(this, "Delete successful!..", Toast.LENGTH_SHORT)
+		// .show();
+		// } else {
+		// Toast.makeText(this, "Delete failed...", Toast.LENGTH_SHORT).show();
+		//
+		// }
 
+	}
+
+	private void CopyDB(InputStream inputStream, FileOutputStream outputStream)
+			throws IOException {
+		// ---copy 1K bytes at a time---
+		byte[] buffer = new byte[1024];
+		int length;
+		while ((length = inputStream.read(buffer)) > 0) {
+			outputStream.write(buffer, 0, length);
 		}
 
+		inputStream.close();
+		outputStream.close();
 	}
 
 	public void DisplayContact(Cursor c) {
