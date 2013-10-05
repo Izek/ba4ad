@@ -2,7 +2,9 @@ package com.shumz.databases;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.database.Cursor;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class DatabasesActivity extends Activity {
 
@@ -14,10 +16,29 @@ public class DatabasesActivity extends Activity {
 		DBAdapter db = new DBAdapter(this);
 
 		// ---add a contact---
+		// db.open();
+		// long id = db.insertContact("Izek Schum", "izek.schum@gmail.com");
+		// id = db.insertContact("Mary Jackson", "mary@jackson.com");
+		// db.close();
+
+		// ---get all contacts---
 		db.open();
-		long id = db.insertContact("Izek Schum", "izek.schum@gmail.com");
-		id = db.insertContact("Mary Jackson", "mary@jackson.com");
+		Cursor c = db.getAllContacts();
+		if (c.moveToFirst()) {
+			do {
+				DisplayContact(c);
+
+			} while (c.moveToNext());
+		}
 		db.close();
+	}
+
+	public void DisplayContact(Cursor c) {
+		Toast.makeText(
+				this,
+				"id: " + c.getString(0) + "\n" + "Name: " + c.getString(1)
+						+ "\n" + "Email: " + c.getString(2), Toast.LENGTH_SHORT)
+				.show();
 	}
 
 	@Override

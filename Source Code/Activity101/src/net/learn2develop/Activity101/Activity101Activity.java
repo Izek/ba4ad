@@ -3,7 +3,6 @@ package net.learn2develop.Activity101;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
 
 public class Activity101Activity extends Activity {
 	String tag = "Lifecycle";
