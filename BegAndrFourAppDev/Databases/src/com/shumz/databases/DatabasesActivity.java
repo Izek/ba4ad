@@ -21,16 +21,26 @@ public class DatabasesActivity extends Activity {
 		// id = db.insertContact("Mary Jackson", "mary@jackson.com");
 		// db.close();
 
-		// ---get all contacts---
-		db.open();
-		Cursor c = db.getAllContacts();
-		if (c.moveToFirst()) {
-			do {
-				DisplayContact(c);
+		// // ---get all contacts---
+		// db.open();
+		// Cursor c = db.getAllContacts();
+		// if (c.moveToFirst()) {
+		// do {
+		// DisplayContact(c);
+		//
+		// } while (c.moveToNext());
+		// }
+		// db.close();
 
-			} while (c.moveToNext());
+		// ---get a contact---
+		db.open();
+		Cursor c = db.getContact(2);
+		if (c.moveToFirst()) {
+			DisplayContact(c);
+		} else {
+			Toast.makeText(this, "No contact found...", Toast.LENGTH_SHORT)
+					.show();
 		}
-		db.close();
 	}
 
 	public void DisplayContact(Cursor c) {
