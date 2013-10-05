@@ -32,15 +32,35 @@ public class DatabasesActivity extends Activity {
 		// }
 		// db.close();
 
-		// ---get a contact---
+		// // ---get a contact---
+		// db.open();
+		// Cursor c = db.getContact(2);
+		// if (c.moveToFirst()) {
+		// DisplayContact(c);
+		// } else {
+		// Toast.makeText(this, "No contact found...", Toast.LENGTH_SHORT)
+		// .show();
+		// }
+
+		// // ---update contact---
+		// db.open();
+		// if (db.updateContact(4, "Izek Schum", "izek.schum@gmail.com")) {
+		// Toast.makeText(this, "Update successful!..", Toast.LENGTH_SHORT)
+		// .show();
+		// } else {
+		// Toast.makeText(this, "Update failed...", Toast.LENGTH_SHORT).show();
+		// }
+
+		// ---delete a contact---
 		db.open();
-		Cursor c = db.getContact(2);
-		if (c.moveToFirst()) {
-			DisplayContact(c);
-		} else {
-			Toast.makeText(this, "No contact found...", Toast.LENGTH_SHORT)
+		if (db.deleteContact(1)) {
+			Toast.makeText(this, "Delete successful!..", Toast.LENGTH_SHORT)
 					.show();
+		} else {
+			Toast.makeText(this, "Delete failed...", Toast.LENGTH_SHORT).show();
+
 		}
+
 	}
 
 	public void DisplayContact(Cursor c) {
