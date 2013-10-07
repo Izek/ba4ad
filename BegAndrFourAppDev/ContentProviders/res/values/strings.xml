@@ -4,5 +4,9 @@
     <string name="app_name">ContentProviders</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="tv_isbn">ISBN</string>
+    <string name="tv_title">Title</string>
+    <string name="btn_add_title">Add title</string>
+    <string name="btn_retreive_titles">Retrieve titles</string>
 
 </resources>

@@ -24,7 +24,7 @@
         </activity>
 
         <provider
-            android:name="BookProvider"
+            android:name="BooksProvider"
             android:authorities="com.shumz.provider.Books" >
         </provider>
     </application>
