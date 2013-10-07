@@ -22,15 +22,20 @@ public class ProviderActivity extends ListActivity {
 
 		// Uri allContacts = Uri.parse("content://contacts/people");
 		Uri allContacts = ContactsContract.Contacts.CONTENT_URI;
+
+		String[] projection = new String[] { ContactsContract.Contacts._ID,
+				ContactsContract.Contacts.DISPLAY_NAME,
+				ContactsContract.Contacts.HAS_PHONE_NUMBER };
+
 		Cursor c;
 
 		if (android.os.Build.VERSION.SDK_INT < 11) {
 			// ---before Honeycomb---
-			c = managedQuery(allContacts, null, null, null, null);
+			c = managedQuery(allContacts, projection, null, null, null);
 		} else {
 			// ---Honeycomb and later---
 			CursorLoader cursorLoader = new CursorLoader(this, allContacts,
-					null, null, null, null);
+					projection, null, null, null);
 			c = cursorLoader.loadInBackground();
 		}
 
